@@ -7,10 +7,13 @@ const ProductCart = ({product, onAddToCart}) =>{
     onAddToCart(product);
     alertify.success(`${product.name} sepete eklendi!`);
   }
+  const gotodetail=()=>{
+
+  }
 
   return(
     <Card style={{margin: '10px'}}>
-        <img src={product.image} alt={product.name} style={{width: '100%'}}></img>
+        <img src={product.image} alt={product.name} style={{width: '100%'}} onClick={gotodetail(product)}></img>
         <CardBody>
           <CardTitle>{product.name}</CardTitle>
           <CardText>{product.description}</CardText>
