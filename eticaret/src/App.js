@@ -58,7 +58,7 @@ const App = () =>{
               }
             >
             </Route>
-            <Route path="detail" element={CartDetail}/>
+            <Route path="/detail" element={<CartDetail/>}/>
           </Routes>
       </Container>
     </Router>
