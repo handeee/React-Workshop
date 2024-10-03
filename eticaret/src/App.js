@@ -5,6 +5,7 @@ import Cart from './components/Cart.js';
 import CategoryList from './components/CategoryList.js';
 import ProductList from './components/ProductList.js';
 import { categories, products } from './data/data.js';
+import CartDetail from './components/CartDetail.js';
 
 const App = () =>{
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -57,6 +58,7 @@ const App = () =>{
               }
             >
             </Route>
+            <Route path="detail" element={CartDetail}/>
           </Routes>
       </Container>
     </Router>
