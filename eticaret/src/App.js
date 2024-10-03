@@ -13,6 +13,7 @@ const App = () =>{
 
   const handleAddToCart = (product) =>{
     setCart([...cart, product]);
+    
   };
 
   const handleRemoveFromCart = (product) => {

@@ -16,9 +16,23 @@ const ProductCart = ({ product, onAddToCart }) => {
     console.log(image)
     navigate('/detail', { state: {image} });
   };
-
+  const styles = {
+   
+    card: {
+      
+      transition: "transform 0.3s ease", // Hover efekti için geçiş
+      margin: '10px' 
+    },
+    cardHover: {
+      transform: "scale(1.05)", // Hover efekti
+    }
+   
+  };
   return (
-    <Card style={{ margin: '10px' }}>
+    <Card style={styles.card}
+    onMouseEnter={(e) => e.currentTarget.style.transform = styles.cardHover.transform}
+          onMouseLeave={(e) => e.currentTarget.style.transform = "none"}
+    >
       <img 
         src={product.image} 
         alt={product.name} 
