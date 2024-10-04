@@ -1,31 +1,46 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-const CartDetail = () => {
+const CartDetail = ({ product, onAddToCart }) => {
   const location = useLocation();
   const { image } = location.state || {};
-
+  const handleAddToCart = () => {
+    onAddToCart(product);
+   
+  };
   return (
     <div style={{ display: "flex", marginTop: "40px" }}>
       <div>
-     
+        {/* Product Image */}
         <img
           key={image.id}
           src={image.image}
           alt={`image-${image.name}`}
-          style={{ width: "500px", height: "500px" }}
+          style={{ width: "500px", height: "460px" }}
           className="detayresim"
         />
       </div>
-      <div className="detail-content" style={{ marginLeft: "160px",marginTop:"10px" }}>
+      
+      {/* Product Details and Price */}
+      <div className="detail-content" style={{ marginLeft: "160px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
         <div className="content">
           <p className="imgtitle">{image.name}</p>
           <br />
           {image.description}
         </div>
-        <div className="fyt" style={{ marginTop:"10px"}}>
-          <p>{image.price + "TL"}</p>
+        <div className="fyt" style={{ marginTop:"30px" }}>
+          <p>{image.price + " TL"}</p>
         </div>
+        <button 
+          style={{
+            width: "250px",
+            height: "50px", 
+            marginTop: "auto",   
+            alignSelf: "center", 
+            marginBottom:"120px"
+        }}  /*onClick={handleAddToCart}*/>
+          Sepete ekle
+        </button>
       </div>
     </div>
   );

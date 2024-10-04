@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import alertify from 'alertifyjs';
 import { Button, ListGroup, ListGroupItem } from 'reactstrap';
 
-const Cart = ({ cartItems, onRemoveFromCart, onClearCart }) => {
+const Cart = ({ cartItems, onRemoveFromCart, onClearCart/*setCart*/ }) => {
   // Initialize state for quantities (adets), reading from localStorage if available
   const [adetler, setAdetler] = useState(() => {
     const savedCart = localStorage.getItem("userCart");
@@ -32,17 +32,24 @@ const Cart = ({ cartItems, onRemoveFromCart, onClearCart }) => {
   }, 0);
 
   // Handle removing an item from the cart
-  const handleRemoveFromCart = (item) => {
+  // const handleRemoveFromCart = (id, name) => {
+  //   if (window.confirm('Bu ürünü çıkarmak istediğinize emin misiniz?')) {
+  //     setCart(prevItems => {
+  //       const updatedItems = prevItems.filter(item => !(item.id === id && item.name === name));
+  //       return updatedItems; // Return the updated cart
+  //     });
+  //     alertify.error(`${name} sepetten çıkarıldı!`); // Show notification
+  //   }
+  // };
+  const handleRemoveFromCart = (item) =>{
     onRemoveFromCart(item);
     alertify.error(`${item.name} sepetten çıkarıldı!`);
-  };
-
+  }
   // Handle clearing the entire cart
   const handleClearCart = () => {
     onClearCart();
     alertify.error('Sepet boşaltıldı!');
   };
-
   return (
     <div>
       <h3 style={{ marginTop:"50px" }}>Sepet</h3>
@@ -65,14 +72,10 @@ const Cart = ({ cartItems, onRemoveFromCart, onClearCart }) => {
     }}>{adetler[index] || 1}</button>
                 <button className="azaltart" onClick={() => arttir(index)}>+</button>
               </div>
-              
-              
-              <p style={{  marginLeft: "39px",marginTop:"13px"}}>${item.price * (adetler[index] || 1)}</p> 
-
-              
+              <p style={{  marginLeft: "39px",marginTop:"13px"}}>${item.price * (adetler[index] || 1)}</p>    
               <Button 
                 color='warning' 
-                onClick={() => handleRemoveFromCart(item)} 
+                 onClick={() => handleRemoveFromCart(item)} 
                 style={{ float: 'right', marginLeft: "auto" }} 
                 className='btn btn-sm'>
                 Kaldır
@@ -81,11 +84,7 @@ const Cart = ({ cartItems, onRemoveFromCart, onClearCart }) => {
           </ListGroupItem>
         ))}
       </ListGroup>
-
-      {/* Display total price */}
       <h4 className='mt-5'>Toplam: ${totalPrice.toFixed(2)}</h4>
-      
-      {/* Clear cart button */}
       <Button color='danger' onClick={handleClearCart}>Sepeti Boşalt</Button>
     </div>
   );

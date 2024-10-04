@@ -47,7 +47,7 @@ const App = () =>{
                 </Col>
                 <Col sm="8">
                   <ProductList products={filteredProducts} 
-                  onAddToCart={handleAddToCart}></ProductList>
+                  onAddToCart={handleAddToCart} setcart={setCart} cartItems={cart}></ProductList>
                 </Col>
               </Row>
             }
@@ -59,7 +59,7 @@ const App = () =>{
               }
             >
             </Route>
-            <Route path="/detail" element={<CartDetail/>}/>
+            <Route path="/detail" element={<CartDetail onAddToCart={handleAddToCart} setcart={setCart}/>}/>
           </Routes>
       </Container>
     </Router>
