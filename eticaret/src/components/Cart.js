@@ -45,16 +45,16 @@ const Cart = ({ cartItems, onRemoveFromCart, onClearCart }) => {
 
   return (
     <div>
-      <h3>Sepet</h3>
-      <ListGroup>
+      <h3 style={{ marginTop:"50px" }}>Sepet</h3>
+      <ListGroup style={{ width:"1020px" }} >
         {cartItems.map((item, index) => (
           <ListGroupItem key={item.id}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center',height:"120px" }}>
               {/* Product image */}
               <img 
                 src={item.image} 
                 alt={item.name} 
-                style={{ width: '80px', height: '80px', marginRight: '10px' }} 
+                style={{ width: '100px', height: '100px', marginRight: '10px' }} 
               />
               
               {/* Quantity control buttons */}
@@ -65,7 +65,7 @@ const Cart = ({ cartItems, onRemoveFromCart, onClearCart }) => {
               </div>
               
               {/* Product name and price */}
-              {item.name}  ${item.price * (adetler[index] || 1)}
+              {item.name} <p style={{  marginLeft: "29px",marginTop:"13px"}}>${item.price * (adetler[index] || 1)}</p> 
 
               {/* Remove button */}
               <Button 
