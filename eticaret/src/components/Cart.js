@@ -54,20 +54,22 @@ const Cart = ({ cartItems, onRemoveFromCart, onClearCart }) => {
               <img 
                 src={item.image} 
                 alt={item.name} 
-                style={{ width: '100px', height: '100px', marginRight: '10px' }} 
+                style={{ width: '110px', height: '110px', marginRight: '10px' }} 
               />
-              
+               <p style={{  marginLeft: "75px",marginTop:"13px",marginRight:"40px"}}>{item.name}</p>
               {/* Quantity control buttons */}
               <div className="ana" style={{ display: "flex", marginLeft: "20px", marginRight: "30px", borderRadius: '30px' }}>
                 <button className="azaltart" onClick={() => azalt(index)}>-</button>
-                <button>{adetler[index] || 1}</button>
+                <button  style={{border: '1px solid lightgray',background: 'none',boxShadow: 'none',padding: '5px 10px',fontSize: '16px',borderRadius: '5px',            
+      textAlign: 'center'            
+    }}>{adetler[index] || 1}</button>
                 <button className="azaltart" onClick={() => arttir(index)}>+</button>
               </div>
               
-              {/* Product name and price */}
-              {item.name} <p style={{  marginLeft: "29px",marginTop:"13px"}}>${item.price * (adetler[index] || 1)}</p> 
+              
+              <p style={{  marginLeft: "39px",marginTop:"13px"}}>${item.price * (adetler[index] || 1)}</p> 
 
-              {/* Remove button */}
+              
               <Button 
                 color='warning' 
                 onClick={() => handleRemoveFromCart(item)} 

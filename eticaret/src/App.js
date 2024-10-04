@@ -6,7 +6,7 @@ import CategoryList from './components/CategoryList.js';
 import ProductList from './components/ProductList.js';
 import { categories, products } from './data/data.js';
 import CartDetail from './components/CartDetail.js';
-
+import './App.css';
 const App = () =>{
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [cart, setCart] = useState([]);
