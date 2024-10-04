@@ -33,7 +33,7 @@ const Cart = ({cartItems, onRemoveFromCart, onClearCart}) => {
               <Button 
                 color='warning' 
                 onClick={() => handleRemoveFromCart(item)} 
-                style={{ float: 'right' }} 
+                style={{ float: 'right',marginLeft:"1000px"}} 
                 className='btn btn-sm'>
                 Kaldır
               </Button>
